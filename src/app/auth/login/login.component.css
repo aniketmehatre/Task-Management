@@ -1,0 +1,97 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    width: 85%;
+    max-width: 900px;
+    height: 500px;
+    display: flex;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
+    overflow: hidden;
+    /* background-color: white; */
+  
+}
+
+.left-section {
+    background: linear-gradient(rgba(142, 68, 173, 0.8), rgba(243, 156, 18, 0.8)), url('/assets/background.jpg');
+    color:white;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding: 40px;
+    overflow: hidden;
+  
+}
+
+
+
+.left-section * {
+    position: relative;
+    z-index: 2;
+}
+
+.social-icons i {
+    font-size: 1.8em;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: #ddd;
+}
+
+.btn-purple {
+    background-color: #8e44ad;
+    color: white;
+    width: 48%;
+    margin-right: 4%;
+    font-size: 12px;
+}
+
+.btn-purple:hover {
+    background-color: #732d91;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #2980b9;
+    color: white;
+    width: 48%;
+    font-size: 12px;
+}
+
+.btn-primary:hover {
+    background-color: #216a95;
+    color: white;
+}
+
+.input-group-text {
+    background-color: #f9f9f9;
+    border-right: none;
+}
+
+.form-control {
+    border-left: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .left-section {
+        display: none;
+    }
+
+    .login-container {
+        width: 100%;
+        margin: 5px;
+    }
+}
