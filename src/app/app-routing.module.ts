@@ -5,15 +5,15 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
-  // {
-  //   path: '', component: LoginComponent
-  // },
-  // {
-  //   path: 'dashboard', component: DashboardComponent
-  // },
   {
-    path: '', component: ForgotPassComponent
-  }
+    path: '', component: LoginComponent
+  },
+  {
+    path: 'forgot-pass', component: ForgotPassComponent
+  },
+  {
+    path: 'dashboard', component: DashboardComponent
+  },
 ];
 
 @NgModule({
