@@ -1,0 +1,43 @@
+<div class="sidebar">
+    
+    <div class="sidebar-header" (click)="toggleSidebar()">
+      <img src="assets/logo.jpg" alt="Logo" class="logo" />
+      <div class="title">
+        <h3>Tasklab</h3>
+        <p>Task Management</p>
+      </div>
+      <span class="dropdown-icon">{{ sidebarOpen ? '▲' : '▼' }}</span>
+    </div>
+  
+    
+    <div *ngIf="sidebarOpen">
+    
+      <div class="menu">
+        <p class="menu-title">Menu</p>
+        <ul>
+          <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+          <li><i class="fas fa-folder"></i> Projects</li>
+          <li>
+            <a [routerLink]="['/tasks']">
+                <i class="fas fa-tasks me-2"></i> My Tasks List
+            </a>
+        </li>
+        
+          <li><i class="fas fa-calendar-alt"></i> Calendar</li>
+          <li><i class="fas fa-envelope"></i> Messages</li>
+          <li><i class="fas fa-chart-bar"></i> Analytics</li>
+        </ul>
+      </div>
+  
+    
+      <div class="topics">
+        <p class="menu-title">Topics</p>
+        <ul>
+            <li><i class="fas fa-palette icon-branding"></i> Branding</li>
+            <li><i class="fas fa-globe icon-webdesign"></i> Web Design</li>
+            <li><i class="fas fa-mobile-alt icon-appdesign"></i> App Design</li>
+        </ul>
+      </div>
+  
+    
+  
