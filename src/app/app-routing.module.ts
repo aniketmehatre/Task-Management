@@ -6,9 +6,10 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { TaskListComponent } from './dashboard/task-list/task-list.component';
 
+
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
     path: 'forgot-pass', component: ForgotPassComponent
@@ -16,6 +17,13 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent
   },
+  {
+    path:'tasks', component:TaskListComponent
+  },
+  {
+    path:'sidebar',component:SidebarComponent
+  }
+ 
 ];
 
 @NgModule({
