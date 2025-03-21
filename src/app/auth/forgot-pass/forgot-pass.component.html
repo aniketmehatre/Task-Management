@@ -1,27 +1,30 @@
 <div class="card-container">
-    <div class="card">
-        <div class="card-left">
-        <div class="text-center">
-            <h4 class="">Forgot Password</h4>
+    <div class="card">                 
+        <div class="card-left">   
+            <div class="row">        
+            <div class="col-md-6 p-4" >
+        <div class="text-center ">
+            <h3 class="">Forgot Password</h3>
             <p class="pb-2">Enter your e-mail address, and <br> we'll give you reset instructions.</p>    
         <div class="pb-2">
-          <input type="email" id="email" class="text-center" placeholder="Enter e-mail address">
+                <input type="email" class="form-control" placeholder="Enter e-mail address">
         </div>
         <div>
           <button class="btn btn-primary" placeholder="Send New Password">Send New Password</button>
         </div>
         <div> 
-            <label> Back to <a href="#">Login?</a>
+            <label> Back to <a href="#" [routerLink]="['/login']">Login?</a>
             </label>
         </div>
-    </div>
+    </div> 
+</div>   
+<div class="col-md-6">
         <div class="card-right">
-            <div class="grid pb-8">
+            <div class="grid">
                 <div class="grid-line horizontal top"></div>
             <div class="grid-line horizontal middle"></div>
             <div class="grid-line vertical left"></div>
             <div class="grid-line vertical middle"></div>
-
                 <span class="question-mark">?</span>
                 <div class="icon email-icon">
                     <i class="bi bi-envelope"></i>
@@ -29,8 +32,9 @@
                 <div class="icon send-icon">
                     <i class="bi bi-send-fill"></i>
                 </div>
-                
-            </div>    
+            </div> 
+            </div> 
+        </div>   
         </div>
         </div>
     </div>
