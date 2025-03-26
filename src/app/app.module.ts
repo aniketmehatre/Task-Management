@@ -15,6 +15,7 @@ import { TaskListComponent } from './dashboard/task-list/task-list.component';
 import { ViewProjectComponent } from './dashboard/view-project/view-project.component';
 import { ViewTaskComponent } from './dashboard/view-task/view-task.component';
 import { ViewUserComponent } from './dashboard/view-user/view-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { ViewUserComponent } from './dashboard/view-user/view-user.component';
     ViewProjectComponent,
     SidebarComponent,
     AddTaskComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,176 +1,192 @@
-<div class="container mt-4">
-        <!-- Navbar -->
-        <div class="d-flex justify-content-between align-items-center mb-4 ">
-            <div class="input-group w-50">          
-          <span class="input-group-text">
-            <i class="bi bi-search">   
-            </i> 
+<div class="d-flex">
+  
+  <app-sidebar></app-sidebar> <!-- Sidebar component -->
+
+  <div class="container mt-4" style="flex-grow: 1;"> <!-- Content takes up the remaining space -->
+    
+    <!-- Navbar -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="input-group w-50">          
+        <span class="input-group-text">
+          <i class="bi bi-search"></i> 
         </span>     
-            <input type="text" class="form-control w-50" placeholder="Search tasks...">   
-          </div>
-          <div class="d-flex align-items-center ms-auto gap-2" style="margin-left: 50%; gap: 50px;">
-            <button class="btn btn-light mx-2">
-              <i class="bi bi-bell"></i>
-            </button>
-            <button class="btn btn-light mx-2">
-              <i class="bi bi-question-circle"></i>
-            </button>
-            <img src="" class="rounded-circle" width="15%" height="30%" alt="Profile" />
-          </div>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Board</h2>
-            <!-- Toolkit Dropdown -->
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="toolkitDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Toolkit
+        <input type="text" class="form-control w-50" placeholder="Search tasks...">   
+      </div>
+
+      <div class="d-flex align-items-center ms-auto gap-2" style="margin-left: 50%; gap: 50px;">
+        <button class="btn btn-light mx-2">
+          <i class="bi bi-bell"></i>
+        </button>
+        <button class="btn btn-light mx-2">
+          <i class="bi bi-question-circle"></i>
+        </button>
+        <img src="" class="rounded-circle" width="15%" height="30%" alt="Profile" />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Board</h2>
+      
+      <!-- Toolkit Dropdown -->
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="toolkitDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Toolkit
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="toolkitDropdown">
+          <li><a class="dropdown-item" href="#">Option 1</a></li>
+          <li><a class="dropdown-item" href="#">Option 2</a></li>
+          <li><a class="dropdown-item" href="#">Option 3</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row g-3">
+      <!-- To Do Column -->
+      <div class="abc col-md-4">
+        <div class="card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span>To Do</span>
+            <div>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-plus"></i>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="toolkitDropdown">
-                <li><a class="dropdown-item" href="#">Option 1</a></li>
-                <li><a class="dropdown-item" href="#">Option 2</a></li>
-                <li><a class="dropdown-item" href="#">Option 3</a></li>
-              </ul>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-three-dots"></i>
+              </button>
             </div>
           </div>
-          <br>
-          <div class="row g-3">
-            <!-- To Do Column -->
-            <div class=" abc col-md-4">
-                <div class="card h-100">
-                  <div class="card-header d-flex justify-content-between align-items-center">
-                    <span>To Do</span>
-                    <div>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-plus"></i>
-                      </button>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-three-dots"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div *ngFor="let task of tasks.todo" class="task-card mb-3 p-3">
-                      
-                      <!-- Category with Green Circle & Dots on the Right -->
-                      <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                          <span class="status-circle me-2" [ngClass]="{
-                              'bg-success': task.status === 'success',
-                              'bg-primary': task.status === 'primary'
-                            }">
-                          </span>
-                          <span class="task-category">{{ task.category }}</span>
-                        </div>
-                        <button class="btn btn-sm btn-light">
-                          <i class="bi bi-three-dots"></i>
-                        </button>
-                      </div>
+
+          <div class="card-body">
+            <div *ngFor="let task of tasks.todo" class="task-card mb-3 p-3">
               
-                      <h5 class="task-title">{{ task.title }}</h5>
-                      <p class="task-description">{{ task.description }}</p>
-                      
-                      <!-- Badge Section -->
-                      <div class="badge-container">
-                        <span *ngFor="let badge of task.badges; let i = index" 
-                              class="badge rounded-circle position-absolute"
-                              [ngClass]="{'bg-warning': badge === 'VH', 'bg-primary': badge === 'AG', 'bg-danger': badge === 'ML'}"
-                              [style.left.px]="i * 25">
-                          {{ badge }}
-                        </span>
-                    </div> 
-                    </div>
-                  </div>
+              <!-- Category with Green Circle & Dots on the Right -->
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <span class="status-circle me-2" [ngClass]="{
+                      'bg-success': task.status === 'success',
+                      'bg-primary': task.status === 'primary'
+                    }">
+                  </span>
+                  <span class="task-category">{{ task.category }}</span>
                 </div>
+                <button class="btn btn-sm btn-light">
+                  <i class="bi bi-three-dots"></i>
+                </button>
               </div>
-                    
-            <!-- In Progress Column -->
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                    <span>In Progress</span>
-                    <div>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-plus"></i>
-                      </button>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-three-dots"></i>
-                      </button>
-                    </div>
-                  </div>
-                <div class="card-body">
-                  <div *ngFor="let task of tasks.inProgress" class="task-card mb-3 p-3">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                          <span class="status-circle me-2" [ngClass]="{
-                              'bg-danger': task.status === 'danger',
-                            }">
-                          </span>
-                          <span class="task-category">{{ task.category }}</span>
-                        </div>
-                        <button class="btn btn-sm btn-light">
-                          <i class="bi bi-three-dots"></i>
-                        </button>
-                      </div>
-                    
-                    <h5 class="task-title">{{ task.title }}</h5>
-                    <p class="task-description">{{ task.description }}</p>
-                    <div class="badge-container">
-                        <span *ngFor="let badge of task.badges; let i = index" 
-                              class="badge rounded-circle position-absolute"
-                              [ngClass]="{'bg-primary': badge === 'VH', 'bg-success': badge === 'LK'}"
-                              [style.left.px]="i * 25">
-                          {{ badge }}
-                        </span>
-                      </div>
-                  </div>
-                </div>
-              </div>
+      
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-description">{{ task.description }}</p>
+              
+              <!-- Badge Section -->
+              <div class="badge-container">
+                <span *ngFor="let badge of task.badges; let i = index" 
+                      class="badge rounded-circle position-absolute"
+                      [ngClass]="{'bg-warning': badge === 'VH', 'bg-primary': badge === 'AG', 'bg-danger': badge === 'ML'}"
+                      [style.left.px]="i * 25">
+                  {{ badge }}
+                </span>
+              </div> 
             </div>
-        
-            <!-- Done Column -->
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                    <span>Done</span>
-                    <div>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-plus"></i>
-                      </button>
-                      <button class="btn btn-sm btn-light">
-                        <i class="bi bi-three-dots"></i>
-                      </button>
-                    </div>
-                  </div>
-                <div class="card-body">
-                  <div *ngFor="let task of tasks.done" class="task-card mb-3 p-3">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                          <span class="status-circle me-2" [ngClass]="{
-                              'bg-danger': task.status === 'danger',
-                              'bg-primary': task.status === 'primary',
-                              'bg-success': task.status === 'success',
-                            }">
-                          </span>
-                          <span class="task-category">{{ task.category }}</span>
-                        </div>
-                        <button class="btn btn-sm btn-light">
-                          <i class="bi bi-three-dots"></i>
-                        </button>
-                      </div>
-                    <h5 class="task-title">{{ task.title }}</h5>
-                    <p class="task-description">{{ task.description }}</p>
-                    <div class="badge-container">
-                        <span *ngFor="let badge of task.badges; let i = index" 
-                              class="badge rounded-circle position-absolute"
-                              [ngClass]="{'bg-primary': badge === 'HU', 'bg-warning': badge === 'NL', 'bg-danger': badge === 'VH','bg-success': badge === 'AG'}"
-                              [style.left.px]="i * 25">
-                          {{ badge }}
-                        </span>
-                      </div>
-                  </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- In Progress Column -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <span>In Progress</span>
+            <div>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-plus"></i>
+              </button>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div *ngFor="let task of tasks.inProgress" class="task-card mb-3 p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <span class="status-circle me-2" [ngClass]="{
+                      'bg-danger': task.status === 'danger'
+                    }">
+                  </span>
+                  <span class="task-category">{{ task.category }}</span>
                 </div>
+                <button class="btn btn-sm btn-light">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
+              
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-description">{{ task.description }}</p>
+              
+              <div class="badge-container">
+                <span *ngFor="let badge of task.badges; let i = index" 
+                      class="badge rounded-circle position-absolute"
+                      [ngClass]="{'bg-primary': badge === 'VH', 'bg-success': badge === 'LK'}"
+                      [style.left.px]="i * 25">
+                  {{ badge }}
+                </span>
               </div>
             </div>
           </div>
         </div>
-        
+      </div>
+
+      <!-- Done Column -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <span>Done</span>
+            <div>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-plus"></i>
+              </button>
+              <button class="btn btn-sm btn-light">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div *ngFor="let task of tasks.done" class="task-card mb-3 p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                  <span class="status-circle me-2" [ngClass]="{
+                      'bg-danger': task.status === 'danger',
+                      'bg-primary': task.status === 'primary',
+                      'bg-success': task.status === 'success'
+                    }">
+                  </span>
+                  <span class="task-category">{{ task.category }}</span>
+                </div>
+                <button class="btn btn-sm btn-light">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+              </div>
+              
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-description">{{ task.description }}</p>
+              
+              <div class="badge-container">
+                <span *ngFor="let badge of task.badges; let i = index" 
+                      class="badge rounded-circle position-absolute"
+                      [ngClass]="{'bg-primary': badge === 'HU', 'bg-warning': badge === 'NL', 'bg-danger': badge === 'VH', 'bg-success': badge === 'AG'}"
+                      [style.left.px]="i * 25">
+                  {{ badge }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,37 +1,39 @@
 .table-responsive {
-    border-radius: 8px;
-    overflow: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Ensure horizontal scroll only when screen width is smaller */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;  /* Enable horizontal scrolling */
   }
-  
-  .table {
-    margin-top: 16px;
+
+  table {
+    white-space: nowrap;  /* Prevent text wrapping in the table */
   }
-  
-  .btn-outline-info {
-    color: #0dcaf0;
-    border-color: #0dcaf0;
-  }
-  
-  .btn-outline-warning {
-    color: #ffc107;
-    border-color: #ffc107;
-  }
-  
-  .btn-outline-danger {
-    color: #dc3545;
-    border-color: #dc3545;
-  }
-  
-  .active {
-    background-color: #218838;
-    border-color: #1e7e34;
-  }
-  /* Ensure horizontal scroll only when screen width is smaller */
-  @media (max-width: 768px) {
-      .table-responsive {
-        overflow-x: auto;  /* Enable horizontal scrolling */
-      }
-      table {
-        white-space: nowrap;  /* Prevent text wrapping in the table */
-      }
-    }
+}
+
+.table {
+  margin-top: 16px;
+}
+
+.btn-outline-info {
+  color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+
+.btn-outline-warning {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.active {
+  background-color: #218838;
+  border-color: #1e7e34;
+}

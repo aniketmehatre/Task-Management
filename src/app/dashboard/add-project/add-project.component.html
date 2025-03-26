@@ -1,1 +1,166 @@
-<p>add-project works!</p>
+<div class="d-flex">
+    <app-sidebar></app-sidebar>
+  
+    <div class="container mt-4" style="flex-grow: 1;">
+      <!-- Navbar -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="input-group w-50">
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+          <input type="text" class="form-control w-50" placeholder="Search tasks..." />
+        </div>
+        <div class="d-flex align-items-center ms-auto gap-2" style="margin-left: 50%; gap: 50px;">
+          <button class="btn btn-light mx-2">
+            <i class="bi bi-bell"></i>
+          </button>
+          <button class="btn btn-light mx-2">
+            <i class="bi bi-question-circle"></i>
+          </button>
+          <img src="" class="rounded-circle" width="15%" height="30%" alt="Profile" />
+        </div>
+      </div>
+      
+      <!-- Add Project Form (Toggle Button) -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+      <button class="btn btn-info me-2" (click)="filterProjects()">Search</button> <!-- New Search Button -->
+      <button class="btn btn-success mb-4" (click)="isAddProjectActive = !isAddProjectActive">
+        {{ isAddProjectActive ? 'Close Form' : 'Add Project' }}
+      </button>
+      </div>
+  
+      <!-- Add Project Form -->
+      <div *ngIf="isAddProjectActive" class="card p-3">
+        <h4>Add New Project</h4>
+        <div class="form-group mt-3">
+          <label>Project Name</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.projectname" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Description</label>
+          <textarea class="form-control" [(ngModel)]="newProject.description"></textarea>
+        </div>
+        <div class="form-group mt-3">
+          <label>Start Date</label>
+          <input type="date" class="form-control" [(ngModel)]="newProject.startDate" />
+        </div>
+        <div class="form-group mt-3">
+          <label>End Date</label>
+          <input type="date" class="form-control" [(ngModel)]="newProject.endDate" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Project Status</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.projectstatus" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Project Manager</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.managername" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Team Members</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.teammember" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Client Name</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.clientname" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Project Domain</label>
+          <input type="text" class="form-control" [(ngModel)]="newProject.domain" />
+        </div>
+  
+        <button class="btn btn-success mt-4" (click)="addProject()">Add Project</button>
+      </div>
+  
+      <!-- Projects Table -->
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered table-hover table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>Sr</th>
+              <th>Project Name</th>
+              <th>Start Date</th>
+              <th>Project Status</th>
+              <th>Manager Name</th>
+              <th>Team Members</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of projects; let i = index">
+              <td>{{ project.Sr }}</td>
+              <td>{{ project.projectname }}</td>
+              <td>{{ project.startDate }}</td>
+              <td>{{ project.projectstatus }}</td>
+              <td>{{ project.managername }}</td>
+              <td>{{ project.teammember }}</td>
+              <td>
+                <button class="btn btn-sm btn-outline-info me-2" (click)="viewProject(i)">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-warning me-2" (click)="openUpdateForm(i)">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteProject(i)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+      <!-- Project View Section -->
+<div *ngIf="isViewActive" class="card mt-4 p-3">
+    <h4>View Project Details</h4>
+    <p><strong>Project Name:</strong> {{ selectedProject.projectname }}</p>
+    <p><strong>Description:</strong> {{ selectedProject.description }}</p>
+    <p><strong>Start Date:</strong> {{ selectedProject.startDate }}</p>
+    <p><strong>End Date:</strong> {{ selectedProject.endDate }}</p>
+    <p><strong>Project Status:</strong> {{ selectedProject.projectstatus }}</p>
+    <p><strong>Manager Name:</strong> {{ selectedProject.managername }}</p>
+    <p><strong>Team Members:</strong> {{ selectedProject.teammember }}</p>
+    <p><strong>Client Name:</strong> {{ selectedProject.clientname }}</p>
+    <p><strong>Project Domain:</strong> {{ selectedProject.domain }}</p>
+  
+    <button class="btn btn-secondary mt-3" (click)="closeView()">Close</button>
+  </div>
+  
+      <!-- Update Project Form -->
+      <div *ngIf="isUpdateActive" class="card mt-4 p-3">
+        <h4>Update Project Information</h4>
+        <div class="form-group">
+          <label>Project Name</label>
+          <input type="text" class="form-control" [(ngModel)]="editableProject.projectname" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Description</label>
+          <textarea class="form-control" [(ngModel)]="editableProject.description"></textarea>
+        </div>
+        <div class="form-group mt-3">
+          <label>Start Date</label>
+          <input type="date" class="form-control" [(ngModel)]="editableProject.startDate" />
+        </div>
+        <div class="form-group mt-3">
+          <label>End Date</label>
+          <input type="date" class="form-control" [(ngModel)]="editableProject.endDate" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Project Status</label>
+          <input type="text" class="form-control" [(ngModel)]="editableProject.projectstatus" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Project Manager</label>
+          <input type="text" class="form-control" [(ngModel)]="editableProject.managername" />
+        </div>
+        <div class="form-group mt-3">
+          <label>Team Members</label>
+          <input type="text" class="form-control" [(ngModel)]="editableProject.teammember" />
+        </div>
+        <button class="btn btn-success mt-4" (click)="saveUpdate()">Save</button>
+        <button class="btn btn-secondary mt-4" (click)="cancelUpdate()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
