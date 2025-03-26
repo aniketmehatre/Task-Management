@@ -15,6 +15,7 @@ import { AddProjectComponent } from './dashboard/add-project/add-project.compone
 import { ViewProjectComponent } from './dashboard/view-project/view-project.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { TaskListComponent } from './dashboard/task-list/task-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TaskListComponent } from './dashboard/task-list/task-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

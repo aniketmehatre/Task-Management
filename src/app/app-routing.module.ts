@@ -5,10 +5,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { TaskListComponent } from './dashboard/task-list/task-list.component';
+import { AddProjectComponent } from './dashboard/add-project/add-project.component';
 
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
     path: 'forgot-pass', component: ForgotPassComponent
@@ -16,6 +17,15 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent
   },
+  {
+    path:'tasks', component:TaskListComponent
+  },
+  {
+    path:'sidebar',component:SidebarComponent
+  },
+  {
+    path:'addproject',component:AddProjectComponent
+  }
 ];
 
 @NgModule({

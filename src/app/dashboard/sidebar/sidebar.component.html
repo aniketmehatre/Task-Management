@@ -15,8 +15,15 @@
       <div class="menu">
         <p class="menu-title">Menu</p>
         <ul>
-          <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
-          <li><i class="fas fa-folder"></i> Projects</li>
+          <li>
+            <a [routerLink]="['/dashboard']">
+            <i class="fas fa-tachometer-alt"></i> 
+            Dashboard
+          </a></li>
+          <li>
+            <a [routerLink]="['/addproject']">
+            <i class="fas fa-folder"></i> Projects
+          </a></li>
           <li>
             <a [routerLink]="['/tasks']">
                 <i class="fas fa-tasks me-2"></i> My Tasks List
