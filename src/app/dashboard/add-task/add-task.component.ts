@@ -1,6 +1,5 @@
+import { Component } from '@angular/core';
 
-import { Component } from '@angular/core';
-import { Component } from '@angular/core';
 interface Task {
   Sr: string;
   taskname: string;
@@ -15,26 +14,11 @@ interface Task {
 }
 
 @Component({
-  selector: 'app-add-task', 
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css'] 
-})
-export class AddTaskComponent { 
-  tasks: Task[] = []; 
-  filteredTasks: Task[] = []; 
-  isAddTaskActive = false; 
-  isUpdateActive = false;
-  isViewActive = false;
-  newTask: Task = this.getEmptyTask(); 
-  editableTask: Task = this.getEmptyTask(); 
-  selectedTask: Task = this.getEmptyTask(); 
-  editIndex: number | null = null;
-  searchQuery: string = ''; 
-=======
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css']
 })
+
 export class AddTaskComponent {
   tasks: Task[] = [];
   filteredTasks: Task[] = [];
@@ -46,16 +30,11 @@ export class AddTaskComponent {
   selectedTask: Task = this.getEmptyTask();
   editIndex: number | null = null;
   searchQuery: string = ''; // For the search functionality
+
   constructor() {
     this.tasks = [
       {
         Sr: '1',
-
-        taskname: 'Task Name', 
-        description: 'Description',
-        startDate: '0000-00-00',
-        endDate: '0000-00-00',
-        taskstatus: 'Task status', 
         taskname: 'Task Name',
         description: 'Description',
         startDate: '0000-00-00',
@@ -67,17 +46,6 @@ export class AddTaskComponent {
         domain: 'Domain'
       }
     ];
-    this.filteredTasks = [...this.tasks]; 
-  }
-
-  getEmptyTask(): Task { 
-    return {
-      Sr: '',
-      taskname: '', 
-      description: '',
-      startDate: '',
-      endDate: '',
-      taskstatus: '', 
     this.filteredTasks = [...this.tasks]; // Initially, filtered tasks is the same as full tasks list
   }
 
@@ -95,25 +63,7 @@ export class AddTaskComponent {
       domain: ''
     };
   }
- 
-  addTask() { 
-    this.newTask.Sr = (this.tasks.length + 1).toString(); 
-    this.tasks.push({ ...this.newTask });
-    this.filteredTasks = [...this.tasks]; 
-    this.newTask = this.getEmptyTask(); 
-    this.isAddTaskActive = false; 
-  }
 
-  
-  filterTasks() { 
-    this.filteredTasks = this.tasks.filter(task =>
-      task.taskname.toLowerCase().includes(this.searchQuery.toLowerCase()) 
-    );
-  }
-
-  deleteTask(index: number) { 
-    this.tasks.splice(index, 1); 
-    this.filterTasks();
   // Add a new task to the list
   addTask() {
     this.newTask.Sr = (this.tasks.length + 1).toString(); // Automatically assign serial number
@@ -134,19 +84,13 @@ export class AddTaskComponent {
     this.tasks.splice(index, 1); // Remove the task from the main list
     this.filterTasks(); // Keep filteredTasks in sync after deletion
   }
+
   openUpdateForm(index: number) {
     this.isUpdateActive = true;
     this.editIndex = index;
     this.editableTask = { ...this.filteredTasks[index] };
   }
 
-
-  saveUpdate() { 
-    if (this.editIndex !== null) {
-     
-      const mainListIndex = this.tasks.findIndex(t => t.Sr === this.editableTask.Sr); // Renamed from project to task
-      this.tasks[mainListIndex] = { ...this.editableTask };
-      this.filterTasks(); 
   saveUpdate() {
     if (this.editIndex !== null) {
       // Update the main tasks list based on filtered results
@@ -159,12 +103,6 @@ export class AddTaskComponent {
 
   cancelUpdate() {
     this.isUpdateActive = false;
-    this.editableTask = this.getEmptyTask(); 
-  }
-
-  viewTask(index: number) { 
-    this.selectedTask = { ...this.filteredTasks[index] }; 
-
     this.editableTask = this.getEmptyTask();
   }
 
@@ -177,5 +115,3 @@ export class AddTaskComponent {
     this.isViewActive = false;
   }
 }
-  }
-
