@@ -31,7 +31,6 @@ import { ViewUserComponent } from './dashboard/view-user/view-user.component';
     SidebarComponent,
     AddTaskComponent,
     TaskListComponent,
-    TaskListComponent,
   ],
   imports: [
     BrowserModule,

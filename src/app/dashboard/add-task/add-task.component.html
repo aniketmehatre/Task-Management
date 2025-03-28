@@ -17,11 +17,11 @@
         <button class="btn btn-light mx-2">
           <i class="bi bi-question-circle"></i>
         </button>
-        <img src="" class="rounded-circle" width="15%" height="30%" alt="Profile" />
+        <img src="\assets\user img.jpg" class="rounded-circle" width="15%" height="30%" alt="Profile" />
       </div>
     </div>
     
-    <!-- Add Project Form (Toggle Button) -->
+  
     <div class="d-flex justify-content-between align-items-center mb-3">
     <button class="btn btn-info me-2" (click)="filterTasks()">Search</button> <!-- New Search Button -->
     <button class="btn btn-success mb-4" (click)="isAddTaskActive = !isAddTaskActive">
@@ -29,7 +29,7 @@
     </button>
     </div>
 
-    <!-- Add Project Form -->
+  
     <div *ngIf="isAddTaskActive" class="card p-3">
       <h4>Add New Task</h4>
       <div class="form-group mt-3">
@@ -110,8 +110,6 @@
       </table>
     </div>
     
-
-    <!-- Project View Section -->
 <div *ngIf="isViewActive" class="card mt-4 p-3">
   <h4>View Task Details</h4>
   <p><strong>Task Name:</strong> {{ selectedTask.taskname }}</p>
